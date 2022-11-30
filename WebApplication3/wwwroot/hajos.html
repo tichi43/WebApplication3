@@ -3,26 +3,83 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <script src="hajos.js"></script>
+    <link rel="stylesheet" href="hajos.css" media="all" />
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        div {
+            margin: 10px;
+            border: 1px solid fuchsia
+        }
+
+        #külső {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #kérdés_szöveg {
+        }
+
+        #középső {
+            display:flex;
+            flex-direction: row;
+            flex-grow: 1;
+        }
+
+        #válaszok {
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+
+        #vezérlő {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        #kép {
+            
+        }
+
+        .gomb {
+            padding: 20px;
+            width: 80px;
+            text-align: center;
+        }
+
+        .kerdes {
+        }
+        .kattintható:hover {
+            background: fuchsia;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div id="eredmeny"></div>
+    <div id="külső">
+        <div id="kérdés_szöveg">
+            Kérdés szövege
+        </div>
 
-    <script>
-        async function start() {
-            const response = await fetch("/api/Hajos/questions/all");
-            const data = await response.json();
-            kiíratás(data);
-        }
-
-        function kiíratás(kérdések) {
-            console.log(kérdések);
-            kérdések.forEach(function (element) {
-                let újelem = document.createElement("div");
-                újelem.innerHTML = (element);
-                document.getElementById("eredmeny").appendChild(újelem);
-            });
-        }
-        start();
-    </script>
+        <div id="középső">
+            <div id="válaszok">
+                <div id="válasz1" class="kerdes">Válasz 1</div>
+                <div id="válasz2" class="kerdes">Válasz 2</div>
+                <div id="válasz3" class="kerdes">Válasz 3</div>
+            </div>
+            <div id="kép">
+                <img id="kép1" src="https://kzgzdiag426.blob.core.windows.net/netcore/teszt-0050.jpg" />
+            </div>
+        </div>
+        <div id="vezérlő">
+            <div class="gomb kattintható">Vissza</div>
+            <div class="gomb kattintható">Előre</div>
+        </div>
+    </div>
 </body>
 </html>
