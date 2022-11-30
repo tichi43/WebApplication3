@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="eredmeny"></div>
+
+    <script>
+        async function start() {
+            const response = await fetch("/api/Hajos/questions/all");
+            const data = await response.json();
+            kiíratás(data);
+        }
+
+        function kiíratás(kérdések) {
+            console.log(kérdések);
+            kérdések.forEach(function (element) {
+                let újelem = document.createElement("div");
+                újelem.innerHTML = (element);
+                document.getElementById("eredmeny").appendChild(újelem);
+            });
+        }
+        start();
+    </script>
+</body>
+</html>
