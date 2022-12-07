@@ -18,6 +18,20 @@ namespace WebApplication3.Controllers
             return new JsonResult(kérdések);
         }
 
+        [HttpGet]
+        [Route("questions/{id}")]
+        public IActionResult r2(int id)
+        {
+            var kérdések = from x in hajosdb.Questions
+                           where x.QuestionId == id
+                           select x;
 
+            if (kérdések.Count()==0)
+            {
+                return BadRequest();
+            }
+
+            return new JsonResult(kérdések.FirstOrDefault());
+        }
     }
 }

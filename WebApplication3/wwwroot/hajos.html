@@ -2,12 +2,13 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <script src="hajos.js"></script>
     <link rel="stylesheet" href="hajos.css" media="all" />
     <style>
         html, body {
-            height: 100%;
+            height: calc(100% - 1rem);
         }
 
         div {
@@ -25,7 +26,7 @@
         }
 
         #középső {
-            display:flex;
+            display: flex;
             flex-direction: row;
             flex-grow: 1;
         }
@@ -42,9 +43,10 @@
         }
 
         #kép {
-            
         }
-
+        #kép1 {
+            width: 100%
+        }
         .gomb {
             padding: 20px;
             width: 80px;
@@ -53,10 +55,44 @@
 
         .kerdes {
         }
+
         .kattintható:hover {
             background: fuchsia;
             color: white;
             cursor: pointer;
+        }
+
+        .jó {
+            background: #43b62d;
+        }
+
+        .rossz {
+            background: #e92e39;
+        }
+        @media (max-width: 900px) {
+            #középső {
+                flex-direction: column;
+            }
+            html, body {
+                height: 100%;
+            }
+            #kép1 {
+                width: auto;
+                //height: 100%;
+               max-width: 80vw;
+                
+            }
+            #kép {
+                text-align: center;
+            }
+            #válaszok {
+                flex-grow: 0;
+                flex-shrink: 0;
+            }
+            #kép {
+                flex-grow: 1;
+                flex-shrink: 1;
+            }
         }
     </style>
 </head>
@@ -68,17 +104,17 @@
 
         <div id="középső">
             <div id="válaszok">
-                <div id="válasz1" class="kerdes">Válasz 1</div>
-                <div id="válasz2" class="kerdes">Válasz 2</div>
-                <div id="válasz3" class="kerdes">Válasz 3</div>
+                <div id="válasz1" class="kerdes kattintható" onclick="választás(1)">Válasz 1</div>
+                <div id="válasz2" class="kerdes kattintható" onclick="választás(2)">Válasz 2</div>
+                <div id="válasz3" class="kerdes kattintható" onclick="választás(3)">Válasz 3</div>
             </div>
             <div id="kép">
                 <img id="kép1" src="https://kzgzdiag426.blob.core.windows.net/netcore/teszt-0050.jpg" />
             </div>
         </div>
         <div id="vezérlő">
-            <div class="gomb kattintható">Vissza</div>
-            <div class="gomb kattintható">Előre</div>
+            <div class="gomb kattintható" onclick="vissza()">Vissza</div>
+            <div class="gomb kattintható" onclick="előre()">Előre</div>
         </div>
     </div>
 </body>
