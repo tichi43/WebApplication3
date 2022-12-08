@@ -33,5 +33,11 @@ namespace WebApplication3.Controllers
 
             return new JsonResult(kérdések.FirstOrDefault());
         }
+        [HttpGet]
+        [Route("questions/count")]
+        public int r3()
+        {
+            return hajosdb.Questions.Count();
+        }
     }
 }

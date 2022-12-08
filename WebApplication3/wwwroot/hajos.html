@@ -13,7 +13,7 @@
 
         div {
             margin: 10px;
-            border: 1px solid fuchsia
+            //border: 1px solid fuchsia
         }
 
         #külső {
@@ -35,7 +35,9 @@
             flex-grow: 1;
             flex-shrink: 1;
         }
-
+        #válaszok div {
+            padding: 0.5rem;
+        }
         #vezérlő {
             display: flex;
             flex-direction: row;
@@ -57,17 +59,19 @@
         }
 
         .kattintható:hover {
-            background: fuchsia;
-            color: white;
+            //background: #ffd800;
+            //color: white;
             cursor: pointer;
         }
 
         .jó {
             background: #43b62d;
+            color: white;
         }
 
         .rossz {
             background: #e92e39;
+            color: white;
         }
         @media (max-width: 900px) {
             #középső {
@@ -114,6 +118,7 @@
         </div>
         <div id="vezérlő">
             <div class="gomb kattintható" onclick="vissza()">Vissza</div>
+            <div class="gomb kattintható" onclick="reset()">Reset</div>
             <div class="gomb kattintható" onclick="előre()">Előre</div>
         </div>
     </div>
